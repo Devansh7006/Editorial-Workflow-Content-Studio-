@@ -177,10 +177,10 @@ body {
     </div>
 
     <div class="d-flex gap-2 mb-4 flex-wrap">
-      <span class="btn btn-dark btn-sm border-secondary text-white rounded-pill px-3"><i class="bi bi-funnel me-1"></i>All Topics</span>
-      <span class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-secondary">Web Dev</span>
-      <span class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-secondary">Database</span>
-      <span class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-secondary">Networking</span>
+      <button type="button" class="btn btn-dark btn-sm border-secondary text-white rounded-pill px-3 topic-filter active" data-topic="All" onclick="filterBoard('All')"><i class="bi bi-funnel me-1"></i>All Topics</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-secondary topic-filter" data-topic="Web Dev" onclick="filterBoard('Web Dev')">Web Dev</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-secondary topic-filter" data-topic="Database" onclick="filterBoard('Database')">Database</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-secondary topic-filter" data-topic="Networking" onclick="filterBoard('Networking')">Networking</button>
     </div>
 
     <div class="row g-3">
@@ -191,21 +191,10 @@ body {
               <i class="bi bi-pencil text-secondary"></i>
               <span class="fw-bold text-white">Drafts</span>
             </div>
-            <span class="badge bg-secondary rounded-pill">1 Story</span>
+            <span class="badge bg-secondary rounded-pill" id="board-draft-count">1 Story</span>
           </div>
 
-          <div class="card card-inner p-3 rounded-3 shadow-sm mb-3">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <span class="badge bg-secondary" style="font-size: 10px;">Networking</span>
-              <span class="text-secondary small" style="font-size: 11px;"><i class="bi bi-clock me-1"></i>Draft</span>
-            </div>
-            <div class="fw-bold text-white small mb-1">Computer Networks Notes</div>
-            <p class="text-secondary small mb-3" style="font-size: 11px;">OSI 7 layer architecture &amp; TCP/IP protocol stack.</p>
-            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary">
-              <span class="text-secondary small" style="font-size: 11px;"><i class="bi bi-person me-1"></i>Devansh</span>
-              <a href="editor.html" class="btn btn-outline-secondary btn-sm py-0 px-2 rounded-pill" style="font-size: 11px;">Edit</a>
-            </div>
-          </div>
+          <div id="board-draft-list"></div>
         </div>
       </div>
 
@@ -216,21 +205,10 @@ body {
               <i class="bi bi-clock-history text-warning"></i>
               <span class="fw-bold text-white">In Peer Review</span>
             </div>
-            <span class="badge bg-warning text-dark rounded-pill">1 Story</span>
+            <span class="badge bg-warning text-dark rounded-pill" id="board-review-count">1 Story</span>
           </div>
 
-          <div class="card card-inner p-3 rounded-3 shadow-sm mb-3">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <span class="badge bg-secondary" style="font-size: 10px;">Web Dev</span>
-              <span class="badge bg-warning text-dark" style="font-size: 10px;">Awaiting Approval</span>
-            </div>
-            <div class="fw-bold text-white small mb-1">HTML5 &amp; CSS3 Project Guide</div>
-            <p class="text-secondary small mb-3" style="font-size: 11px;">Semantic structure &amp; responsive layouts documentation.</p>
-            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary">
-              <span class="text-secondary small" style="font-size: 11px;"><i class="bi bi-person me-1"></i>Devansh</span>
-              <a href="editor.html" class="btn btn-orange btn-sm py-0 px-2 rounded-pill fw-bold" style="font-size: 11px;">Review</a>
-            </div>
-          </div>
+          <div id="board-review-list"></div>
         </div>
       </div>
 
@@ -241,34 +219,10 @@ body {
               <i class="bi bi-check2-circle text-success"></i>
               <span class="fw-bold text-white">Published</span>
             </div>
-            <span class="badge bg-success rounded-pill">2 Stories</span>
+            <span class="badge bg-success rounded-pill" id="board-published-count">2 Stories</span>
           </div>
 
-          <div class="card card-inner p-3 rounded-3 shadow-sm mb-3">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <span class="badge bg-secondary" style="font-size: 10px;">Database</span>
-              <span class="badge bg-success" style="font-size: 10px;">Live</span>
-            </div>
-            <div class="fw-bold text-white small mb-1">Database Management Systems</div>
-            <p class="text-secondary small mb-3" style="font-size: 11px;">Relational schemas and SQL query indexing.</p>
-            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary">
-              <span class="text-secondary small" style="font-size: 11px;"><i class="bi bi-person me-1"></i>Ayush</span>
-              <a href="editor.html" class="btn btn-outline-secondary btn-sm py-0 px-2 rounded-pill" style="font-size: 11px;">View</a>
-            </div>
-          </div>
-
-          <div class="card card-inner p-3 rounded-3 shadow-sm mb-3">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <span class="badge bg-secondary" style="font-size: 10px;">Editorial</span>
-              <span class="badge bg-success" style="font-size: 10px;">Live</span>
-            </div>
-            <div class="fw-bold text-white small mb-1">Introduction to Editorial Studio</div>
-            <p class="text-secondary small mb-3" style="font-size: 11px;">Getting started guide for student content contributors.</p>
-            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary">
-              <span class="text-secondary small" style="font-size: 11px;"><i class="bi bi-person me-1"></i>Devansh</span>
-              <a href="editor.html" class="btn btn-outline-secondary btn-sm py-0 px-2 rounded-pill" style="font-size: 11px;">View</a>
-            </div>
-          </div>
+          <div id="board-published-list"></div>
         </div>
       </div>
     </div>
@@ -283,5 +237,6 @@ body {
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

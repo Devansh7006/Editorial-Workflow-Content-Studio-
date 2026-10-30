@@ -141,8 +141,8 @@ body {
             <div class="h4 text-dark fw-bold mb-0">Academic &amp; Engineering Publications</div>
           </div>
           <div class="d-flex gap-2">
-            <span class="badge bg-warning text-dark px-3 py-2"><i class="bi bi-clock me-1"></i>1 Pending Review</span>
-            <span class="badge bg-success px-3 py-2"><i class="bi bi-check-circle me-1"></i>2 Published</span>
+            <span class="badge bg-warning text-dark px-3 py-2" id="preview-review-count"><i class="bi bi-clock me-1"></i>1 Pending Review</span>
+            <span class="badge bg-success px-3 py-2" id="preview-published-count"><i class="bi bi-check-circle me-1"></i>2 Published</span>
           </div>
         </div>
 
@@ -157,7 +157,7 @@ body {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="preview-table-body">
               <tr>
                 <td>
                   <span class="fw-bold text-dark">HTML5 &amp; CSS3 Project Guide</span>
@@ -249,5 +249,6 @@ body {
     <p class="mb-0">Editorial Workflow &amp; Content Studio &bull; Mini Project 2026 &bull; Developed by Devansh &amp; Ayush</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

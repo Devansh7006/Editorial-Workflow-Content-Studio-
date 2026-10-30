@@ -154,7 +154,7 @@ body {
       <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
         <div>
           <div class="d-flex align-items-center gap-2 mb-1">
-            <h1 class="h4 text-white fw-bold mb-0">Article Editor</h1>
+            <h1 class="h4 text-white fw-bold mb-0" id="editor-header-title">Article Editor</h1>
             <span class="badge bg-secondary">Studio Form</span>
           </div>
           <p class="text-secondary small mb-0">Draft, configure, and submit editorial articles using Bootstrap 5.3 inputs.</p>
@@ -173,53 +173,54 @@ body {
             <span>Story Content Configuration</span>
           </div>
 
-          <form action="dashboard.html" method="GET">
+          <form id="article-form">
+            <input type="hidden" id="article-id" value="">
             <div class="row g-3 mb-3">
               <div class="col-md-8">
                 <label class="form-label text-secondary small text-uppercase fw-bold">Article Title</label>
-                <input type="text" class="form-control bg-dark text-white border-secondary" value="HTML5 &amp; CSS3 Project Guide" required>
+                <input type="text" id="article-title" class="form-control bg-dark text-white border-secondary" placeholder="e.g. Operating Systems Basics" required>
               </div>
               <div class="col-md-4">
                 <label class="form-label text-secondary small text-uppercase fw-bold">Author</label>
-                <input type="text" class="form-control bg-dark text-white border-secondary" value="Devansh" readonly>
+                <input type="text" id="article-author" class="form-control bg-dark text-white border-secondary" value="Devansh">
               </div>
             </div>
 
             <div class="row g-3 mb-3">
               <div class="col-md-6">
                 <label class="form-label text-secondary small text-uppercase fw-bold">Topic Category</label>
-                <select class="form-select bg-dark text-white border-secondary">
-                  <option selected>Web Development</option>
-                  <option>Database Systems</option>
-                  <option>Networking Protocols</option>
-                  <option>Cloud Architecture</option>
+                <select id="article-category" class="form-select bg-dark text-white border-secondary">
+                  <option value="Web Dev">Web Dev</option>
+                  <option value="Database">Database</option>
+                  <option value="Networking">Networking</option>
+                  <option value="Cloud Architecture">Cloud Architecture</option>
                 </select>
               </div>
               <div class="col-md-6">
                 <label class="form-label text-secondary small text-uppercase fw-bold">Workflow Status</label>
-                <select class="form-select bg-dark text-white border-secondary">
-                  <option selected>In Review</option>
-                  <option>Draft</option>
-                  <option>Published</option>
+                <select id="article-stage" class="form-select bg-dark text-white border-secondary">
+                  <option value="Draft">Draft</option>
+                  <option value="In Review" selected>In Review</option>
+                  <option value="Published">Published</option>
                 </select>
               </div>
             </div>
 
             <div class="mb-3">
               <label class="form-label text-secondary small text-uppercase fw-bold">Short Abstract</label>
-              <input type="text" class="form-control bg-dark text-white border-secondary" value="Semantic structure &amp; responsive layouts documentation for student web projects.">
+              <input type="text" id="article-abstract" class="form-control bg-dark text-white border-secondary" placeholder="Brief summary of the article...">
             </div>
 
             <div class="mb-4">
               <label class="form-label text-secondary small text-uppercase fw-bold">Full Article Content</label>
-              <textarea class="form-control bg-dark text-white border-secondary font-monospace" rows="6">A responsive editorial workflow interface built using semantic HTML5, modern CSS3, and Bootstrap 5.3 components. Designed with a sleek dark Sanity-inspired theme for college presentation.</textarea>
+              <textarea id="article-content" class="form-control bg-dark text-white border-secondary font-monospace" rows="6" placeholder="Write article content here..."></textarea>
             </div>
 
             <div class="d-flex gap-2 flex-wrap">
-              <button type="submit" class="btn btn-orange rounded-pill px-4 fw-bold">
+              <button type="submit" id="btn-submit" class="btn btn-orange rounded-pill px-4 fw-bold">
                 <i class="bi bi-send me-1"></i> Submit for Review
               </button>
-              <button type="button" class="btn btn-outline-secondary rounded-pill px-3">
+              <button type="button" id="btn-save-draft" class="btn btn-outline-secondary rounded-pill px-3">
                 <i class="bi bi-save me-1"></i> Save Draft
               </button>
               <a href="dashboard.html" class="btn btn-outline-secondary rounded-pill px-3">Cancel</a>
@@ -276,5 +277,6 @@ body {
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
